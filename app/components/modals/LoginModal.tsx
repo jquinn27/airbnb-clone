@@ -1,5 +1,4 @@
 "use client";
-import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
@@ -50,6 +49,11 @@ const LoginModal = () => {
     });
   };
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome back" subtitle="Login to your account!" />
@@ -94,10 +98,7 @@ const LoginModal = () => {
         <div className="flex justify-center flex-row items-center gap-2">
           <div>Dont have an account?</div>
           <div
-            onClick={() => {
-              loginModal.onClose;
-              registerModal.onOpen;
-            }}
+            onClick={toggle}
             className="text-neutral-800 cursor-pointer hover:underline"
           >
             Create an account

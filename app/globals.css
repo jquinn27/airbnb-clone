@@ -7,3 +7,32 @@ body,
 :root{
   height: 100%;
 }
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: lightgray;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: darkgray;
+    border-radius: 100vh;
+    border: 3px solid darkgray;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: red;
+  }
+}
